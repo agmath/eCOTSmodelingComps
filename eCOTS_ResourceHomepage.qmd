@@ -1,0 +1,29 @@
+---
+title: "Resources for Closed Community Modeling Competitions"
+author: "Adam Gilbert and Sarah Dumnich"
+format: html
+theme: flatly
+---
+
+This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (St. Vincent College).
+
+## Creating a Kaggle Competition
+
+We've had really great success using Kaggle as a hosting platform for my modeling competitions. Follow [this [placeholder] link](https://agmath.github.io/) for instructions on how to set up your own *Community Competition* on Kaggle. We'll show you how to make your competition closed so that only individuals you invite are able to join. We'll also show you how to set the time frame for your competition.
+
+## Assignments for Semester-Long Competitions
+
+With my semester-long competitions, Adam gives a series of about six assignments to walk students through the data analysis and modeling process. You can see sample assignments below. You should feel free to use or adapt them to suit your needs.
+
+1. [Competition Assignment 1](https://agmath.github.io/ClassificationCourse/CA1.html): *joining the competition and reading in your data*
+2. [Competition Assignment 2](https://agmath.github.io/ClassificationCourse/CA2.html): *Statement of Purpose and Exploratory Data Analysis*
+3. [Competition Assignment 3](https://agmath.github.io/ClassificationCourse/CA3.html): *a first model, model assessment, predictions, and writing about Model Construction and Interpretation*
+4. [Competition Assignment 4](https://agmath.github.io/ClassificationCourse/CA4.html): *additional models, model tuning, and more predictions*
+5. [Competition Assignment 5](https://agmath.github.io/ClassificationCourse/CA5.html) (if appropriate): *utilizing text-based features*
+6. [Competition Assignment 6](https://agmath.github.io/ClassificationCourse/CA6.html) (if appropriate): *constructing and utilizing deep learning models, summarizing results in a Conclusions section*
+
+Through these assignments, students get practice writing about their analysis and modeling processes, exploring data, constructing models, assessing their performance, and utilizing the models to make predictions on new observations with unknown responses. Students also get feedback on their work, especially on the narration throughout the partial report they are constructing. This is helpful since their final course project is to write a complete analytics report using a data set of their choosing.
+
+## Using Language Models as Data Generation Assistants
+
+We've use language models to help us create novel data sets in the past. Follow [this [placeholder] link](https://agmath.github.io/) to learn more about *why* we've done that and *how* we made it happen.

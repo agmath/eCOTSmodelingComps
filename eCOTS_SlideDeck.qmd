@@ -1,0 +1,46 @@
+---
+title: "In-Class Modeling Competitions and Language Models for Data Generation"
+author: "Adam Gilbert and Sarah Dumnich"
+date: today
+date-format: "long"
+format: 
+  revealjs:
+    theme: "serif"
+---
+
+## Introduction
+
+Notes for Slide: Outline for short presentation...
+
+## Motivation
+
+Notes for Slide: A short discussion on why I introduced competitions and the types of problems they've solved.
+
+## Types of Competition
+
+Notes for Slide: A discussion on the types of competitions I/we've run.
+
++ Semester-long competitions within a single course.
++ Semester-long competitions across multiple courses at the same institution.
++ Semester-long competitions across multiple institutions.
++ 70-minute, single class meeting competitions.
+
+## Setting up a Closed Kaggle Competition
+
+Notes for Slide: Briefly show how to build your own closed competition. Full instructions available on the web.
+
+## Additional Challenges and an AI-Assisted Solution
+
+Notes for Slide:
+
++ Kaggle notebooks offer "ready-made" analyses that are enticing to learners.
++ Get an assist from ChatGPT (or your favorite LLM) for generating new, synthetic data sets which are created to your own specifications.
+
+## Closing
+
+More resources are available in the *Resources* attached to this presentation, including:
+
++ Detailed instructions for setting up a closed Kaggle Competition.
++ A sample back-and-forth with ChatGPT about generating data.
++ Sample assignments associated with a semester-long modeling competition.
++ Links to example modeling competitions I've run on Kaggle before.
