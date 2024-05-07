@@ -27,3 +27,14 @@ Through these assignments, students get practice writing about their analysis an
 ## Using Language Models as Data Generation Assistants
 
 We've use language models to help us create novel data sets in the past. Follow [this [placeholder] link](https://agmath.github.io/) to learn more about *why* we've done that and *how* we made it happen.
+
+## Anecdotes and Student Feedback
+
+While we haven't conducted any formal analyses on these competition assignments, we have made the following observations:
+
++ Students are motivated to engage with the modeling process even between assignments because they are driven to win the competition. Statistical modeling has become like an academic e-Sport in courses where we've utilized competitions.
++ Students are thinking about the mathematics behind their models, especially when those models take a long time to tune or fit.
++ Students are thinking about the differences between model performance metrics. For example, "my model had a very high cross-validation *accuracy*, but why didn't that translate into a low *log-loss* score in the competition?"
++ Especially in short competitions, students are thinking more carefully about the model hyperparameters they are choosing to tune, whether tuning multiple hyperparameters is "worth it", and which hyperparameters they'd like to prioritize tuning.
++ Some students make heavy use of residual analyses and try to understand where and why their models perform most poorly. Of these students, many "invent" the notion of an ensemble of models far before they are introduced in class. Anecdotally, this preliminary self-discovery has made the notion of ensembles of models more intuitive to these students.
+
