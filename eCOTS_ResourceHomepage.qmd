@@ -9,7 +9,7 @@ This page points out to resources associated with the eCOTS Posters and Beyond p
 
 ## Creating a Kaggle Competition
 
-We've had really great success using Kaggle as a hosting platform for my modeling competitions. Follow [this [placeholder] link](https://agmath.github.io/) for instructions on how to set up your own *Community Competition* on Kaggle. We'll show you how to make your competition closed so that only individuals you invite are able to join. We'll also show you how to set the time frame for your competition.
+We've had good success using Kaggle as a hosting platform for my modeling competitions. Follow [this [placeholder] link](https://agmath.github.io/) for instructions on how to set up your own *Community Competition* on Kaggle. We'll show you how to make your competition closed so that only individuals you invite are able to join. We'll also show you how to set the time frame for your competition.
 
 ## Assignments for Semester-Long Competitions
 
