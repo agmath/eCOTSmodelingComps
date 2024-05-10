@@ -1,5 +1,5 @@
 ####################################################
-##Splitting Data for NOT A KAGGLE Competition
+##Splitting Data for Kaggle Competition
 ####################################################
 library(tidyverse)
 data <- read_csv("bbq_data.csv")
