@@ -2,7 +2,7 @@
 ##Splitting Data for Kaggle Competition
 ####################################################
 library(tidyverse)
-data <- read_csv("my_data.csv")
+data <- read_csv("bbq_data22222222.csv")
 
 set.seed(5102024)
 data_splits <- initial_split(data, prop = 0.75) #Use strata argument for classification objectives
