@@ -1,6 +1,8 @@
 ---
 title: "Language Model Data Generation"
-author: "Adam Gilbert"
+author: 
+  - "Adam Gilbert"
+  - "Sarah Dumnich"
 format: html
 ---
 
@@ -16,7 +18,7 @@ Utilizing novel data sets ensures that no existing notebooks can be directly lev
 
 ## How to Generate Novel Data...
 
-We can utilize code to generate novel data sources. I've generated data sets on the *weights of Easter Eggs*, *Halloween Monsters*, and *Turkey Pardoning* (an obscure tradition in the US, where the President saves a turkey from becoming part of a Thanksgiving Dinner). I've used ChatGPT as an assistant in constructing these data sources because it can save a bit of time in foundational setup. Once I have the beginnings of code to construct a data set from ChatGPT, I make my own changes before finalizing the data and then using it for a competition.
+We can utilize code to generate novel data sources. I've generated data sets on the *weights of Easter Eggs*, *Halloween Monsters*, and *Turkey Pardoning* (an obscure tradition in the USA, where the President saves a turkey from becoming part of a Thanksgiving Dinner). I've used ChatGPT as an assistant in constructing these data sources because it can save a bit of time in foundational setup. Once I have the beginnings of code to construct a data set from ChatGPT, I make my own changes before finalizing the data and then using it for a competition.
 
 Below, I'll go through an exchange with ChatGPT, where I have it help me generate a data set on *propane usage at summer barbeques*.
 
@@ -120,4 +122,10 @@ head(bbq_data)
 >
 > **Closing:** Thanks ChatGPT. This gives me a great start. I appreciate your help.
 
+## Fine-Tuning the Data Set
 
+Now that we have a data generation script to start from, we'll need to check the difficulty of the prediction problem. The language model added random noise with a mean of 0 and standard deviation of 10 to the `propane_used` variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.
+
+At this point, we suggest building several baseline models of the sort you expect students will try. This allows you to see how easily students will be able to approach the irreducible error threshold. I tried a linear regression model using all of the available predictors and an un-tuned random forest. For this particular data set, either of these models will put students right at the 10 unit RMSE. We should make some changes to increase the difficulty of the prediction problem.
+
+See the *data generation script* on the resource page for the changes we made before creating our final data sets.
