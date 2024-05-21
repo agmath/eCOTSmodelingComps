@@ -13,7 +13,7 @@ bbq_data <- tibble(
   location = sample(c("backyard", "beach", "campsite"), prob = c(0.60, 0.10, 0.30), size = n_obs, replace = TRUE),
   size_est = sample(c("small", "large"), prob = c(0.78, 0.22), size = n_obs, replace = TRUE),
   size_actual = case_when(
-    size_est == "small" ~ rpois(n_obs, lambda = 9),
+    size_est == "small" ~ 3 + rpois(n_obs, lambda = 9),
     size_est == "large" ~ rpois(n_obs, lambda = 42)
   ),
   charcoal_present = sample(c(0, 1), size = n_obs, replace = TRUE),
@@ -38,29 +38,50 @@ for(i in 1:nrow(bbq_data)){
 bbq_data <- bbq_data %>%
   mutate(
     propane_used = 50 +  # base propane usage
-      (0.1 + rnorm(nrow(bbq_data), 0, 0.02)) * size_actual +  # linear effect of size_actual
-      -0.005 * size_actual^2 +  # quadratic effect of size_actual
+      #(0.1 + rnorm(nrow(bbq_data), 0, 0.02)) * size_actual +  # linear effect of size_actual
+      #-0.005 * size_actual^2 +  # quadratic effect of size_actual
+      (10 - 0.005*(size_actual - 40)^2) +
       -20 * smoker_present +  # effect of smoker_present
       -10 * charcoal_present +  # effect of charcoal_present
       case_when(
-        location == "beach" ~ -30,
-        location == "backyard" ~ -10,
+        location == "beach" ~ -0.1*size_actual,
+        location == "backyard" ~ 0.2*size_actual,
         TRUE ~ 0
       ) +  # effect of location
-      0.2 * salads +  # effect of salads
-      -5 * burgers +  # effect of burgers
-      -5 * hotdogs +  # effect of hotdogs
-      5 * chicken +  # effect of chicken
-      -10 * beyond_items +  # effect of beyond_items
-      rnorm(n_obs, mean = 0, sd = 10)  # add some noise
+      0.01 * salads +  # effect of salads
+      0.02 * burgers * size_actual +  # effect of burgers
+      -.1 * hotdogs * size_actual +  # effect of hotdogs
+      0.1 * chicken +  # effect of chicken
+      -0.05 * beyond_items +  # effect of beyond_items
+      rnorm(n_obs, mean = 0, sd = 1)  # add some noise
   )
+
+for(i in 1:nrow(bbq_data)){
+  if(bbq_data[i, "propane_used"] < 4){
+    bbq_data[i, "propane_used"] <- (0.2 + rnorm(1, 0.05, 0.01))*bbq_data[i, "size_actual"]
+  }
+}
 
 # Display the first few rows of the dataset
 head(bbq_data)
 
-###################################################
-##Test how Easy -- ~90% accuracy with un-tuned RF##
-###################################################
+# Check that minimum propane usage isn't negative
+bbq_data %>%
+  summarise(min(propane_used))
+
+#I use plotting to check that the data has the "shape" I intend.
+bbq_data %>%
+  ggplot() +
+  geom_point(aes(x = size_actual, y = propane_used, color = location)) + 
+  facet_wrap(~location, nrow = 1)
+
+bbq_data %>%
+  ggplot() +
+  geom_boxplot(aes(x = size_est, y = propane_used))
+
+################################################
+##Test how Easy#################################
+################################################
 propane_folds <- vfold_cv(bbq_data)
 
 lin_reg_spec <- linear_reg()
@@ -80,35 +101,53 @@ lin_reg_results %>%
 lin_reg_results %>%
   collect_metrics()
 
+rf_reg_spec <- rand_forest() %>%
+  set_engine("ranger") %>%
+  set_mode("regression")
+rf_reg_rec <- recipe(propane_used ~ ., data = bbq_data) %>%
+  step_impute_median(all_numeric_predictors()) %>%
+  step_impute_mode(all_nominal_predictors()) %>%
+  step_dummy(all_nominal_predictors())
+
+rf_reg_wf <- workflow() %>%
+  add_model(rf_reg_spec) %>%
+  add_recipe(rf_reg_rec)
+rf_reg_results <- rf_reg_wf %>%
+  fit_resamples(propane_folds)
+
+rf_reg_results %>%
+  collect_metrics(summarize = FALSE)
+rf_reg_results %>%
+  collect_metrics()
+
 
 ####################################################
-##Decompose Competition Data Files
+##Decompose Competition Data Files##################
 ####################################################
-set.seed(8092023)
-monster_splits <- initial_split(monsters_df, prop = 0.75, strata = class)
-monster_train <- training(monster_splits)
-monster_comp <- testing(monster_splits)
+set.seed(05212024)
+data_splits <- initial_split(bbq_data, prop = 0.75)
+data_train <- training(data_splits)
+data_comp <- testing(data_splits)
 
-monster_train <- monster_train %>%
-  slice_sample(n = monster_train %>% nrow(), replace = FALSE) %>%
+data_train <- data_train %>%
+  slice_sample(n = data_train %>% nrow(), replace = FALSE) %>%
   mutate(ID = row_number()) %>%
   select(ID, everything())
 
-monster_comp <- monster_comp %>%
-  slice_sample(n = monster_comp %>% nrow(), replace = FALSE) %>%
+data_comp <- data_comp %>%
+  slice_sample(n = data_comp %>% nrow(), replace = FALSE) %>%
   mutate(ID = row_number()) %>%
   select(ID, everything())  
 
-monster_key <- monster_comp %>%
-  mutate(Usage = sample(c("Public", "Private"), prob = c(0.3, 0.7), size = monster_comp %>% nrow(), replace = TRUE)) %>%
-  select(ID, Usage, class)
-sample_sub <- monster_comp %>%
-  select(ID) %>%
-  mutate(class = "Zombie")
-monster_comp <- monster_comp %>%
-  select(-class)
+data_key <- data_comp %>%
+  select(ID, propane_used)
+sample_sub <- data_comp %>%
+  mutate(propane_used = mean(propane_used)) %>%
+  select(ID, propane_used)
+data_comp <- data_comp %>%
+  select(-propane_used)
 
-write.csv(monster_train, "G:/My Drive/MAT434/Datasets/monster_train.csv", row.names = FALSE)
-write.csv(monster_comp, "G:/My Drive/MAT434/Datasets/monster_comp.csv", row.names = FALSE)
-write.csv(monster_key, "G:/My Drive/MAT434/Datasets/monster_key.csv", row.names = FALSE)
-write.csv(sample_sub, "G:/My Drive/MAT434/Datasets/sample_sub.csv", row.names = FALSE)
+write.csv(data_train, "data_train.csv", row.names = FALSE)
+write.csv(data_comp, "data_comp.csv", row.names = FALSE)
+write.csv(data_key, "data_key.csv", row.names = FALSE)
+write.csv(sample_sub, "sample_sub.csv", row.names = FALSE)
