@@ -1,0 +1,87 @@
+---
+title: "Hosting Closed Community Competitions on Kaggle"
+author: 
+  - "Adam Gilbert"
+  - "Sarah Dumnich"
+format: html
+---
+
+This page discusses how to host a Community Competition on Kaggle, in particular, it shows how to make the competition *closed* so that only your students can join.
+
+## Pre-Requisites
+
+The instructions in this page assume that you've done the following:
+
++ Created a free [Kaggle](https://www.kaggle.com) account.
++ Run through a `*_DataGen.r` script to obtain `data_train.csv`, `data_comp.csv`, `data_key.csv`, and `sample_sub.csv` files.
+
+  + We've provided the `BarbequeComp_DataGen.r` file here as an example.
+  
+## Hosting Your Own Competition
+
+Follow the instructions below to host your own Community Kaggle Competition.
+
+1. Log in to [Kaggle.com](https://www.kaggle.com).
+2. Click on *Competitions*.
+3. Click the black button to *Host a Competition*.
+4. Scroll down and choose *Get Started* underneath the Community Competition option.
+5. Choose *New Competition*
+
+    + Note that several options are now available, including to create an *AI Generated Competition*. This could be useful if you don't want to create your own data.
+
+6. Fill in the competition details: 
+
+    + Include a title and short description.
+    + Set the visibility to *private*
+  
+      + I prefer providing students a link to join, but if you prefer more control you can choose the other option and provide the e-mails of those permitted to join.
+
+7. Choose whether you wish to allow sharing of notebooks and models. 
+
+    + Allowing these items permits users to work directly in notebooks on Kaggle and to make those notebooks shareable with others. I disable this feature in my competitions.
+  
+8. Accept the *Terms of Agreement* and click to *Create Competition*.
+9. The *Launch Checklist* guides you through all the steps required to set up and launch your competition.
+
+    + Under the *Basic Details* heading,
+  
+      + verify your Title and Description.
+      + verify that the Privacy Settings are as you intended them to be.
+      + select a start and end date (and time) for your competition.
+      + choose how frequent participants are able to make submissions, how many submissions will be scored as part of the competition close (students must choose which models should be scored)
+      + set the maximum team size -- I set this to 1 (no teams) for my own class competitions.
+    
+    + Under the *Images* heading, add any images you like.
+  
+      + I used [perchance.org](https://perchance.org/) to generate the cartoon images for the BBQ Competition.
+  
+    + Under the *Hosts* heading, you can include additional hosts if you have collaborators.
+  
+    + Under the *Evaluation and Metric* heading, 
+  
+      + choose an appropriate evaluation metric.
+      
+        + Don't worry about the Python icon next to some of the metrics -- you can use any appropriate metric regardless of the software participants will be using.
+  
+      + Upload the `data_key.csv` file as the Solution file.
+      + Edit the *Solution Sampling* to determine what proportion of observations will be part of your public versus private leaderboards.
+    
+        + The public leaderboard is shown while the competition is running and the private leaderboard is used at competition close to determine the final ranking. This prevents users from "snooping" and obtaining artificially good performance metrics.
+      
+      + Determine the solution mapping by setting the `Id` to your `ID` column and the `Expected` column to your response column.
+      + Upload your `sample_sub.csv` file in the *Sample Submission* box.
+    
+      + Set the column mapping for the `Id` and `predicted` values.
+      + Save your changes to both the Solution Mapping and Sample Submission blocks.
+      + In *Sandbox Submissions*, still under the *Evaluation and Metric* heading, checking the box next to your sample submission will make it a benchmark that will be seen on the leaderboard.
+  
+    + Update the competition rules in the *Rules* tab.
+    + Use the *Data* tab to upload your `data_train.csv`, `data_comp.csv`, and `sample_sub.csv` files.
+    + Also on the data tab, provide a description of your data. This might be something like a data dictionary.
+    
+    + Update the text on the competition *Overview* tab.
+    + Finally, choose a data set license at the bottom of the *Data* tab.
+
+10. At this point, your *Launch Checklist* should be complete. Check it and complete any items that remain unfinished.
+
+11. At the bottom of the completed *Launch Checklist*, you can now choose the launch the competition immediately or to schedule a launch for a future date and time.
