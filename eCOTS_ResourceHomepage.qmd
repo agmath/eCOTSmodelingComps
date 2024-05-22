@@ -5,7 +5,7 @@ format: html
 theme: flatly
 ---
 
-This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (St. Vincent College).
+This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (St. Vincent College). Here is a link to the [presentation slides](https://agmath.github.io/eCOTSmodelingComps/eCOTS_SlideDeck.html) and a link to the five minute video presentation (link to be added).
 
 ## Creating a Kaggle Competition
 
