@@ -22,7 +22,7 @@ format:
 + Language Model Assistants and novel data set generation
 + Resources available to you
 
-## Motivation
+## Motivation and Benefits
 
 Benefits of competitions in statistical modeling courses:
 

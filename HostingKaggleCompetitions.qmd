@@ -4,6 +4,7 @@ author:
   - "Adam Gilbert"
   - "Sarah Dumnich"
 format: html
+theme: flatly
 ---
 
 This page discusses how to host a Community Competition on Kaggle, in particular, it shows how to make the competition *closed* so that only your students can join.
@@ -85,3 +86,7 @@ Follow the instructions below to host your own Community Kaggle Competition.
 10. At this point, your *Launch Checklist* should be complete. Check it and complete any items that remain unfinished.
 
 11. At the bottom of the completed *Launch Checklist*, you can now choose the launch the competition immediately or to schedule a launch for a future date and time.
+
+***
+
+[Back to Resources Homepage](https://agmath.github.io/eCOTSmodelingComps/eCOTS_ResourceHomepage.html)

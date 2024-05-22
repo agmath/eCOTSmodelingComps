@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page discusses how to utilize a language model assistant, such as ChatGPT, to aid in generation of a novel data set for use in competitions. I start with <em>why</em> I’ve done this and then show an interaction with ChatGPT on generating the data set for this Kaggle Competition I built on <em>propane usage at summer barbeques</em>.</p>
+<p>This page discusses how to utilize a language model assistant, such as ChatGPT, to aid in generation of a novel data set for use in competitions. We start with <em>why</em> we’ve done this and then show an interaction with ChatGPT on generating the data set for this Kaggle Competition I built on <em>propane usage at summer barbeques</em>.</p>
 <section id="why-generate-novel-data" class="level2">
 <h2 class="anchored" data-anchor-id="why-generate-novel-data">Why Generate Novel Data?</h2>
 <p>Kaggle can be a wonderful resource for obtaining data sets and hosting competitions. Kaggle also has a wealth of shared notebooks where users can view what other Kaggle users have done with data sets. This includes exploratory data analyses, model builds, and more.</p>
@@ -221,6 +221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we have a data generation script to start from, we’ll need to check the difficulty of the prediction problem. The language model added random noise with a mean of 0 and standard deviation of 10 to the <code>propane_used</code> variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.</p>
 <p>At this point, we suggest building several baseline models of the sort you expect students will try. This allows you to see how easily students will be able to approach the irreducible error threshold. I tried a linear regression model using all of the available predictors and an un-tuned random forest. For this particular data set, either of these models will put students right at the 10 unit RMSE. We should make some changes to increase the difficulty of the prediction problem.</p>
 <p>See the <em>data generation script</em> on the resource page for the changes we made before creating our final data sets.</p>
+<hr>
+<p><a href="https://agmath.github.io/eCOTSmodelingComps/eCOTS_ResourceHomepage.html">Back to Resources Homepage</a></p>
 </section>
 
 </main>

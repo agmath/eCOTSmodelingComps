@@ -141,7 +141,7 @@ data_comp <- data_comp %>%
   select(ID, everything())  
 
 data_key <- data_comp %>%
-  #mutate(Usage = sample(c("Public", "Private"), prob = c(0.3, 0.7), size = monster_comp %>% nrow(), replace = TRUE)) %>%
+  #mutate(Usage = sample(c("Public", "Private"), prob = c(0.3, 0.7), size = data_comp %>% nrow(), replace = TRUE)) %>%
   #uncomment line above if you want come control over what data is used for public and private leaderboards
   select(ID, propane_used) #select ID and response column
 
