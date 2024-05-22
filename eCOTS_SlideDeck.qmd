@@ -1,6 +1,11 @@
 ---
 title: "In-Class Modeling Competitions and Language Models for Data Generation"
-author: "Adam Gilbert and Sarah Dumnich"
+author: 
+  - "Adam Gilbert" 
+  - "Sarah Dumnich"
+institute:
+  - "Southern New Hampshire University"
+  - "St. Vincent College"
 date: today
 date-format: "long"
 format: 
@@ -10,37 +15,53 @@ format:
 
 ## Introduction
 
-Notes for Slide: Outline for short presentation...
++ Why use competitions in statistical modeling courses?
++ Examples of competitions that you could run
++ Using Kaggle as a hosting platform
++ Challenges with Kaggle Competitions and existing data sets
++ Language Model Assistants and novel data set generation
++ Resources available to you
 
 ## Motivation
 
-Notes for Slide: A short discussion on why we introduced competitions and the types of problems they've solved.
+Benefits of competitions in statistical modeling courses:
+
++ More than just an assignment
++ The learning isn't over when the due date passes
++ Organic discussions and defenses of modeling choices between students
++ Awareness of mathematical/algorithmic differences between models as students consider constraints
++ Better understanding of model performance metrics
 
 ## Types of Competition
-
-Notes for Slide: A discussion on the types of competitions I/we've run.
 
 + Semester-long competitions within a single course.
 + Semester-long competitions across multiple courses at the same institution.
 + Semester-long competitions across multiple institutions.
 + 70-minute, single class meeting competitions.
 
-## Setting up a Closed Kaggle Competition
+## Kaggle Competitions
 
-Notes for Slide: Briefly show how to build your own closed competition. Full instructions available on the web.
++ Public Competitions
+  
+  + Join an existing competition
+  + Can host your own
+
++ Closed Competitions
+
+  + Beneficial for students to compete against their peers
+  + Must host your own
 
 ## Additional Challenges and an AI-Assisted Solution
 
-Notes for Slide:
++ Kaggle notebooks offer "ready-made" analyses that are enticing to learners
++ Most publicly available data sets have notebooks associated with them
++ Get an assist from ChatGPT (or your favorite LLM) for generating new, synthetic data sets which are created to your own specifications
 
-+ Kaggle notebooks offer "ready-made" analyses that are enticing to learners.
-+ Get an assist from ChatGPT (or your favorite LLM) for generating new, synthetic data sets which are created to your own specifications.
-
-## Closing
+## Thank You!
 
 More resources are available in the *Resources* attached to this presentation, including:
 
 + Detailed instructions for setting up a closed Kaggle Competition.
 + A sample back-and-forth with ChatGPT about generating data.
++ A sample data generation and splitting script
 + Sample assignments associated with a semester-long modeling competition.
-+ Links to example modeling competitions we've run on Kaggle before.
