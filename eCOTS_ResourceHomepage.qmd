@@ -9,7 +9,7 @@ This page points out to resources associated with the eCOTS Posters and Beyond p
 
 <center>
 
-<iframe class="slide-deck" src="eCOTS_SlideDeck.html" width="50%"></iframe>
+<iframe class="slide-deck" src="eCOTS_SlideDeck.html" width="50%" height="250"></iframe>
 
 </center>
 
