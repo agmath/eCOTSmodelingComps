@@ -3,6 +3,7 @@ title: "Resources for Closed Community Modeling Competitions"
 author: "Adam Gilbert and Sarah Dumnich"
 format: html
 theme: flatly
+toc: true
 ---
 
 This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (St. Vincent College). You can see our slide deck below, and here's a link to the five minute video presentation (link to be added).
@@ -50,3 +51,8 @@ While we haven't conducted any formal analyses on these competition assignments,
 + Especially in short competitions, students are thinking more carefully about the model hyperparameters they are choosing to tune, whether tuning multiple hyperparameters is "worth it", and which hyperparameters they'd like to prioritize tuning.
 + Some students make heavy use of residual analyses and try to understand where and why their models perform most poorly. Of these students, many "invent" the notion of an ensemble of models far before they are introduced in class. Anecdotally, this preliminary self-discovery has made the notion of ensembles of models more intuitive to these students.
 
+## Check Out a Competition!
+
+We've built and released a competition that runs the week of eCOTS 2024. The competition opens on June 10 and closes at 11:59pm on June 14. We've made the competition *private* so that you can see how this would work if you built a similar competition. Because it is private, the competition is not discoverable via search on Kaggle -- it is only accessible via the direct link below.
+
+The competition uses our synthetic barbeque dataset, and your goal is to predict the number of units of propane used at each of 7,500 barbeques and you have 22,500 barbeques to train on. [You can access (and join) the competition here](https://www.kaggle.com/t/c80bfae88f5e4b818743c61f065507ad) and feel free to join and submit your own model predictions if you'd like!
