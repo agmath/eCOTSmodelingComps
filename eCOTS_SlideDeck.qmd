@@ -5,7 +5,7 @@ author:
   - "Sarah Dumnich"
 institute:
   - "Southern New Hampshire University"
-  - "St. Vincent College"
+  - "Saint Vincent College"
 date: today
 date-format: "long"
 format: 
@@ -35,9 +35,12 @@ Benefits of competitions in statistical modeling courses:
 
 ## Types of Competition
 
-+ Semester-long competitions within a single course.
-+ Semester-long competitions across multiple courses at the same institution.
-+ Semester-long competitions across multiple institutions.
++ Semester-long competitions 
+
+  + within a single course.
+  + across multiple courses at the same institution.
+  + across multiple institutions.
+  
 + 70-minute, single class meeting competitions.
 
 ## Kaggle Competitions
