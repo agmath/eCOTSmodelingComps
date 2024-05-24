@@ -10,7 +10,8 @@ date: today
 date-format: "long"
 format: 
   revealjs:
-    theme: "serif"
+    theme: [serif, custom_links.css]
+    
 ---
 
 ## Introduction
@@ -50,6 +51,8 @@ Benefits of competitions in statistical modeling courses:
 
   + Beneficial for students to compete against their peers
   + Must host your own
+
+Check out [a sample competition here](https://www.kaggle.com/t/c80bfae88f5e4b818743c61f065507ad). Feel free to join the competition and submit your own model predictions.
 
 ## Additional Challenges and an AI-Assisted Solution
 

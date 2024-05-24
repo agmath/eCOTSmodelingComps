@@ -1,0 +1,12 @@
+/*-- scss:defaults --*/
+
+/*Just override hyperlink color*/
+$link-color: #800080;
+
+/*-- scss:rules --*/
+/*
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+*/
