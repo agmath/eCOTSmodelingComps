@@ -265,7 +265,7 @@ You're welcome! I'm glad I could help. If you have any more questions or need fu
 
 ## Fine-Tuning the Data Set
 
-Now that we have a data generation script to start from, we'll need to check the difficulty of the prediction problem. The language model added random noise with a mean of 0 and standard deviation of 10 to the `propane_used` variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.
+Now that we have a data generation script to start from, we'll need to check the difficulty of the prediction problem. For example, for the Barbeque dataset, the language model added random noise with a mean of 0 and standard deviation of 10 to the `propane_used` variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.
 
 At this point, we suggest building several baseline models of the sort you expect students will try. This allows you to see how easily students will be able to approach the irreducible error threshold. I tried a linear regression model using all of the available predictors and an un-tuned random forest. For this particular data set, either of these models will put students right at the 10 unit RMSE. We should make some changes to increase the difficulty of the prediction problem.
 
