@@ -249,8 +249,11 @@ head(dataset)
 ```
 
 Explanation of the Updates
+
 1.	Introduce Correlations: We define a mean vector mu and a covariance matrix Sigma to generate correlated numeric predictors (age, income, and commute distance) using the mvrnorm function from the MASS package.
+
 2.	Interaction Terms: Two interaction terms are created: interaction_income_education (interaction between income and education level) and interaction_age_transport (interaction between age and public transport use).
+
 3.	Update Response Variable Model: The response variable model includes the new interaction terms.
 This updated script will generate a more realistic dataset with correlated predictors and interaction effects, making it more suitable for a regression competition. Feel free to adjust the coefficients and interaction effects to better match your specific needs!
 
