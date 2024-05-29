@@ -116,6 +116,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="how-to-generate-novel-data">How to Generate Novel Data…</h2>
 <p>We can utilize code to generate novel data sources. I’ve generated data sets on the <em>weights of Easter Eggs</em>, <em>Halloween Monsters</em>, and <em>Turkey Pardoning</em> (an obscure tradition in the USA, where the President saves a turkey from becoming part of a Thanksgiving Dinner). I’ve used ChatGPT as an assistant in constructing these data sources because it can save a bit of time in foundational setup. Once I have the beginnings of code to construct a data set from ChatGPT, I make my own changes before finalizing the data and then using it for a competition.</p>
 <p>Below, I’ll go through an exchange with ChatGPT, where I have it help me generate a data set on <em>propane usage at summer barbeques</em>.</p>
+<details>
+<summary>
+Click for BBQ ChatGPT exchange
+</summary>
 <blockquote class="blockquote">
 <p><strong>Prompt:</strong> Hi ChatGPT – I would like to build a fake dataset on “Propane Usage at Summer Barbeques” for a regression competition. Can you help me with this? I’m feeling lazy.</p>
 <blockquote class="blockquote">
@@ -215,10 +219,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p><strong>Closing:</strong> Thanks ChatGPT. This gives me a great start. I appreciate your help.</p>
 </blockquote>
-</section>
+</details>
+<p>You can also ask ChatGPT to come up with the theme, variables, and relationships independently. This requires much less work on your end, but does give up some of the control over these aspects. Below, I’ll go through an exchange with ChatGPT, where I have it help me generate a data set on <em>Earth Day</em>. ChatGPT creates the variables and relationships independently. Some of ChatGPT’s responses have been cut short for brevity:</p>
+<details>
+<summary>
+Click for Earth Day ChatGPT exchange
+</summary>
+<p><strong>Prompt:</strong> hey chat gpt, i’d like you to help me create an r-script to make a simulated dataset for a regression competition in my statistics course.</p>
+<p><strong>Response:</strong> Sure, I can help you create an R script to generate a simulated dataset for a regression competition. Let’s assume you want to simulate a dataset with several predictor variables and a response variable. The response variable will be a linear combination of some predictors plus some random noise. Here’s a step-by-step guide to creating the R script:…</p>
+<p><strong>Prompt:</strong> great, but let me first describe what I’d like the target variable to be, what sort of predictors, etc. I want this to be pseudo real-life looking data</p>
+<p><strong>Response:</strong> Got it! Let’s make the dataset more realistic by including different types of predictors and a more complex relationship for the response variable. Here are some ideas for making the data look more like real-life data…</p>
+<p><strong>Prompt:</strong> Ok, cool. Can you think of a holiday or other event that occurs during the spring semester, other than Easter, and we will make it themed around that?</p>
+<p><strong>Response:</strong> Sure! One event that occurs during the spring semester is Earth Day, which is celebrated on April 22nd. We can create a dataset themed around environmental factors, sustainability practices, and their impact on some outcome variables. Let’s assume we’re creating a dataset to study the impact of various factors on individuals’ carbon footprints or overall environmental impact. Detailed Plan …</p>
+<p><strong>Prompt:</strong> in order to make it more realistic, can you also make some of the predictors somewhat correlated with one another? maybe also include interaction effects too?</p>
+<p><strong>Response:</strong> Absolutely! To create a more realistic dataset, we’ll introduce correlations among the predictors and include interaction effects. Here’s how we can do it: 1. Introduce correlations among the numeric predictors using a covariance matrix. 2. Include interaction effects in the response variable model. Let’s update the R script accordingly: Updated R Script</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)      <span class="co"># For mvrnorm function</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)     <span class="co"># For data manipulation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)   <span class="co"># For handling categorical variables</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the number of observations</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Number of observations</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Generate the predictors</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Define means and covariance matrix for correlated predictors</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">60000</span>, <span class="dv">15</span>)  <span class="co"># Means for age, income, and commute distance</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">2000</span>, <span class="dv">10</span>,   <span class="co"># Covariance matrix</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">2000</span>, <span class="dv">225000000</span>, <span class="dv">1500</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                  <span class="dv">10</span>, <span class="dv">1500</span>, <span class="dv">100</span>), </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate correlated numeric predictors</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>predictors <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> mu, <span class="at">Sigma =</span> Sigma)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> predictors[,<span class="dv">1</span>]                   <span class="co"># Age in years</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> predictors[,<span class="dv">2</span>]                <span class="co"># Income in dollars</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>commute_distance <span class="ot">&lt;-</span> predictors[,<span class="dv">3</span>]      <span class="co"># Daily commute distance in miles</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>household_size <span class="ot">&lt;-</span> <span class="fu">rpois</span>(n, <span class="at">lambda =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="dv">1</span>  <span class="co"># Household size (Poisson distribution + 1)</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorical predictors</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># Gender</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>education <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"High School"</span>, <span class="st">"Bachelor's"</span>, <span class="st">"Master's"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>))  <span class="co"># Education level</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>residence_type <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Apartment"</span>, <span class="st">"House"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>))  <span class="co"># Type of residence</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Environmental behaviors</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>recycling_freq <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Sometimes"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>))</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>public_transport_use <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Rarely"</span>, <span class="st">"Often"</span>, <span class="st">"Always"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>))</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>diet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Vegetarian"</span>, <span class="st">"Non-Vegetarian"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.7</span>))</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Create interaction terms</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>interaction_income_education <span class="ot">&lt;-</span> income <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(education))</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>interaction_age_transport <span class="ot">&lt;-</span> age <span class="sc">*</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(public_transport_use))</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Generate the response variable</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Define true coefficients for a mix of linear and non-linear relationships</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">50</span>, <span class="sc">-</span><span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">1.5</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="fl">0.1</span>, <span class="sc">-</span><span class="fl">0.02</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>epsilon <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)  <span class="co"># Random noise</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Model: y = beta0 + beta1*age + beta2*income + beta3*household_size + </span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">#              beta4*commute_distance + beta5*gender + beta6*education + </span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#              beta7*residence_type + beta8*recycling_freq + </span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">#              beta9*public_transport_use + beta10*diet + </span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">#              beta11*interaction_income_education + beta12*interaction_age_transport + noise</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] <span class="sc">+</span> </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">2</span>] <span class="sc">*</span> age <span class="sc">+</span> </span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">3</span>] <span class="sc">*</span> income <span class="sc">+</span> </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">4</span>] <span class="sc">*</span> household_size <span class="sc">+</span> </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">5</span>] <span class="sc">*</span> commute_distance <span class="sc">+</span> </span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">6</span>] <span class="sc">*</span> (gender <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">+</span> </span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">7</span>] <span class="sc">*</span> (education <span class="sc">==</span> <span class="st">"Bachelor's"</span>) <span class="sc">+</span> </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">7</span>] <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> (education <span class="sc">==</span> <span class="st">"Master's"</span>) <span class="sc">+</span>  <span class="co"># Assign different values for different education levels</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">8</span>] <span class="sc">*</span> (residence_type <span class="sc">==</span> <span class="st">"House"</span>) <span class="sc">+</span> </span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">9</span>] <span class="sc">*</span> (recycling_freq <span class="sc">==</span> <span class="st">"Sometimes"</span>) <span class="sc">+</span> </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">9</span>] <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> (recycling_freq <span class="sc">==</span> <span class="st">"Often"</span>) <span class="sc">+</span> </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">9</span>] <span class="sc">*</span> <span class="dv">3</span> <span class="sc">*</span> (recycling_freq <span class="sc">==</span> <span class="st">"Always"</span>) <span class="sc">+</span> </span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">10</span>] <span class="sc">*</span> (public_transport_use <span class="sc">==</span> <span class="st">"Rarely"</span>) <span class="sc">+</span> </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">10</span>] <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> (public_transport_use <span class="sc">==</span> <span class="st">"Often"</span>) <span class="sc">+</span> </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">10</span>] <span class="sc">*</span> <span class="dv">3</span> <span class="sc">*</span> (public_transport_use <span class="sc">==</span> <span class="st">"Always"</span>) <span class="sc">+</span> </span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">11</span>] <span class="sc">*</span> (diet <span class="sc">==</span> <span class="st">"Vegetarian"</span>) <span class="sc">+</span> </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">12</span>] <span class="sc">*</span> interaction_income_education <span class="sc">+</span> </span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>     beta[<span class="dv">13</span>] <span class="sc">*</span> interaction_age_transport <span class="sc">+</span> </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>     epsilon</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Combine everything into a data frame</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y, age, income, household_size, commute_distance, gender, education, residence_type, recycling_freq, public_transport_use, diet, interaction_income_education, interaction_age_transport)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset to a CSV file</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(dataset, <span class="st">"simulated_earth_day_dataset.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the dataset</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Explanation of the Updates 1. Introduce Correlations: We define a mean vector mu and a covariance matrix Sigma to generate correlated numeric predictors (age, income, and commute distance) using the mvrnorm function from the MASS package. 2. Interaction Terms: Two interaction terms are created: interaction_income_education (interaction between income and education level) and interaction_age_transport (interaction between age and public transport use). 3. Update Response Variable Model: The response variable model includes the new interaction terms. This updated script will generate a more realistic dataset with correlated predictors and interaction effects, making it more suitable for a regression competition. Feel free to adjust the coefficients and interaction effects to better match your specific needs!</p>
+<p><strong>Prompt:</strong> thank ya!</p>
+<p><strong>Response:</strong> You’re welcome! I’m glad I could help. If you have any more questions or need further assistance with your project, feel free to ask. Good luck with your statistics course and the regression competition!</p>
+<details>
+</details></details></section>
 <section id="fine-tuning-the-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="fine-tuning-the-data-set">Fine-Tuning the Data Set</h2>
-<p>Now that we have a data generation script to start from, we’ll need to check the difficulty of the prediction problem. The language model added random noise with a mean of 0 and standard deviation of 10 to the <code>propane_used</code> variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.</p>
+<p>Now that we have a data generation script to start from, we’ll need to check the difficulty of the prediction problem. For example, for the Barbeque dataset, the language model added random noise with a mean of 0 and standard deviation of 10 to the <code>propane_used</code> variable. This means that, theoretically, we should not be able to construct a model with an RMSE (root mean squared error) below 10 units.</p>
 <p>At this point, we suggest building several baseline models of the sort you expect students will try. This allows you to see how easily students will be able to approach the irreducible error threshold. I tried a linear regression model using all of the available predictors and an un-tuned random forest. For this particular data set, either of these models will put students right at the 10 unit RMSE. We should make some changes to increase the difficulty of the prediction problem.</p>
 <p>See the <em>data generation script</em> on the resource page for the changes we made before creating our final data sets.</p>
 <hr>
