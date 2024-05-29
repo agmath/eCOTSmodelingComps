@@ -50,6 +50,10 @@ While we haven't conducted any formal analyses on these competition assignments,
 + Students are thinking about the differences between model performance metrics. For example, "my model had a very high cross-validation *accuracy*, but why didn't that translate into a low *log-loss* score in the competition?"
 + Especially in short competitions, students are thinking more carefully about the model hyperparameters they are choosing to tune, whether tuning multiple hyperparameters is "worth it", and which hyperparameters they'd like to prioritize tuning.
 + Some students make heavy use of residual analyses and try to understand where and why their models perform most poorly. Of these students, many "invent" the notion of an ensemble of models far before they are introduced in class. Anecdotally, this preliminary self-discovery has made the notion of ensembles of models more intuitive to these students.
++ The one-day competitions are viewed by the students as fun ways to test out their knowledge. They really enjoyed the low stakes and immediate reward of seeing the winner.
++ The semester-long competition was viewed more as a learning opportunity. So while still motivating, less fun and exciting.
++ Having six assignments might be too many, depending on what other assignments are due towards the end of the semester.
++ Student feedback suggested having informal presentations to discuss their strategies with the class.
 
 ## Check Out a Competition!
 
