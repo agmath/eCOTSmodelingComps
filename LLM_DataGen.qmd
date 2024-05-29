@@ -131,7 +131,7 @@ head(bbq_data)
 </details>
 
 
-You can also ask ChatGPT to come up with the theme, variables, and relationships itself. This requires much less work on your end, but does give up some of the control over these aspects. Below, I'll go through an exchange with ChatGPT, where I have it help me generate a data set on *Earth Day*, where ChatGPT creates the variables and relationships independently. Some of ChatGPT's responses have been cut off for brevity:
+You can also ask ChatGPT to come up with the theme, variables, and relationships independently. This requires much less work on your end, but does give up some of the control over these aspects. Below, I'll go through an exchange with ChatGPT, where I have it help me generate a data set on *Earth Day*. ChatGPT creates the variables and relationships independently. Some of ChatGPT's responses have been cut short for brevity:
 
 
 <details>
@@ -144,20 +144,19 @@ hey chat gpt, i'd like you to help me create an r-script to make a simulated dat
 
 **Response:**
 Sure, I can help you create an R script to generate a simulated dataset for a regression competition. Let's assume you want to simulate a dataset with several predictor variables and a response variable. The response variable will be a linear combination of some predictors plus some random noise.
-Here's a step-by-step guide to creating the R script:
-…
+Here's a step-by-step guide to creating the R script:...
 
 **Prompt:** 
 great, but let me first describe what I'd like the target variable to be, what sort of predictors, etc. I want this to be pseudo real-life looking data
 
 **Response:**
-Got it! Let's make the dataset more realistic by including different types of predictors and a more complex relationship for the response variable. Here are some ideas for making the data look more like real-life data…
+Got it! Let's make the dataset more realistic by including different types of predictors and a more complex relationship for the response variable. Here are some ideas for making the data look more like real-life data...
 
 **Prompt:** Ok, cool. Can you think of a holiday or other event that occurs during the spring semester, other than Easter, and we will make it themed around that?
 
 **Response:**
 Sure! One event that occurs during the spring semester is Earth Day, which is celebrated on April 22nd. We can create a dataset themed around environmental factors, sustainability practices, and their impact on some outcome variables. Let's assume we're creating a dataset to study the impact of various factors on individuals' carbon footprints or overall environmental impact.
-Detailed Plan …
+Detailed Plan ...
 
 **Prompt:** in order to make it more realistic, can you also make some of the predictors somewhat correlated with one another? maybe also include interaction effects too?
 
