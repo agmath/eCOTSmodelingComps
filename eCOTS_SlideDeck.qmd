@@ -63,6 +63,13 @@ Check out [a sample competition here](https://www.kaggle.com/t/c80bfae88f5e4b818
 + Most publicly available data sets have notebooks associated with them
 + Get an assist from ChatGPT (or your favorite LLM) for generating new, synthetic data sets which are created to your own specifications
 
+## Future Iterations
+
++ Individual competition assignments, but allow collaboration
++ Condense the semester-long assignment to the first two-thirds of the semester
++ Informal presentations so students can share their progress with the class
++ More one-day competitions to encourage testing their skills
+
 ## Thank You!
 
 More resources are available in the *Resources* attached to this presentation, including:
