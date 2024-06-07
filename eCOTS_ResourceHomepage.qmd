@@ -6,7 +6,7 @@ theme: flatly
 toc: true
 ---
 
-This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (Saint Vincent College). You can see our slide deck below, and here's a link to the five minute video presentation (link to be added).
+This page points out to resources associated with the eCOTS Posters and Beyond presentation titled *In-Class Modeling Competitions and Language Models for Data Generation* by Adam Gilbert (Southern New Hampshire University) and Sarah Dumnich (Saint Vincent College). You can see our slide deck below, and [here's a link to our five minute video presentation](https://causeweb.org/cause/ecots/ecots24/program/posters/1) from eCOTS 2024.
 
 <center>
 
